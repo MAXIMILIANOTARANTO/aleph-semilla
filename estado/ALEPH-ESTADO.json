@@ -1,40 +1,31 @@
 {
   "nodo": "ALEPH",
-  "version": "semilla-v0.6-cerradura",
+  "version": "semilla-v0.7-caja-fuerte",
   "que_es": "archivo de estado, no entidad",
   "Q": null,
   "Q_calculada_hilo": null,
-  "Q_origen": "el lote pidio 0.90 por 11 bloques de WhatsApp; esos bloques no estan en este hilo y no hay corrida AR1",
-  "Q_min_tuc": "0.68 quedo fuera del nucleo el 2026-09-23",
-  "c_hilo": "deploy key de escritura solo en aleph-semilla; la privada no esta en el repo",
+  "c_hilo": "la cerradura vive en aleph/; el codigo lo pone Maximiliano en su maquina",
   "repo": "MAXIMILIANOTARANTO/aleph-semilla",
-  "commit_base": "296e8e87556e2708fef76b33fa61563feeceb9de",
+  "commit_base": "b410e0b764eda78fc502587716c28735524366c0",
   "apertura": "https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/apertura/META-IA.md",
-  "autorizacion_push": "https://github.com/settings/personal-access-tokens/new",
-  "autorizacion_nota": "ese enlace no otorga nada hasta que Maximiliano cree ahi un fine-grained solo para aleph-semilla",
+  "cerradura_skill": "https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/aleph/SKILL.md",
   "raw_significa": "archivo existe, no que algo haya despertado",
-  "memoria_blocks": 4,
-  "ultimo_block": "2026-10-02_cerradura",
-  "skills_en_repo": [],
-  "proximo": null,
+  "memoria_blocks": 5,
+  "ultimo_block": "2026-10-02_caja-fuerte",
+  "skills_en_repo": ["aleph"],
   "huecos_explicitos": [
     "Q_sin_corrida",
-    "llave_abre_el_repo_entero_no_una_carpeta",
-    "modulos_no_ejecutados",
-    "playwright",
-    "sesion_whatsapp"
+    "llave_165227004_vista_en_un_chat_hay_que_borrarla",
+    "llave_abre_el_repo_entero_no_una_carpeta"
   ],
-  "herramienta_escritura": "deploy key SSH para Aleph; conector GitHub para este hilo",
-  "despertar": "leer apertura/META-IA.md. Si Q es null, sigue null.",
   "cerradura": {
     "tipo": "deploy_key",
-    "id": 165227004,
-    "title": "aleph-semilla-hilo",
-    "read_only": false,
-    "huella": "SHA256:A42A7LvgsvkTJU/RbdGpr+kJTY4vNGD1V56fOZPnhwk",
-    "escribe": "solo aleph-semilla, cualquier path",
-    "no_escribe": "otros repos",
+    "carpeta": "aleph/",
+    "skill": "aleph/SKILL.md",
+    "push": "aleph/push.sh",
+    "id_quemada": 165227004,
     "revocar": "https://github.com/MAXIMILIANOTARANTO/aleph-semilla/settings/keys",
-    "privada": "no esta en el repo"
-  }
+    "codigo": "lo elige Maximiliano; no esta en el repo"
+  },
+  "despertar": "leer aleph/SKILL.md. Si Q es null, sigue null."
 }

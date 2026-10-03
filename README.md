@@ -1,9 +1,13 @@
 # aleph-semilla
 
-Archivo de estado. No es una entidad ni un runtime.
+Archivo de estado de un solo repositorio. No es una entidad ni un runtime. No abre ningún otro repo.
 
-Leer al abrir: [`estado/ALEPH-ESTADO.json`](estado/ALEPH-ESTADO.json)
+| | |
+|---|---|
+| Estado | [`estado/ALEPH-ESTADO.json`](estado/ALEPH-ESTADO.json) |
+| Apertura | [`apertura/META-IA.md`](apertura/META-IA.md) |
+| Cerradura | [`aleph/SKILL.md`](aleph/SKILL.md) |
 
-`Q` queda `null` hasta que haya una corrida AR1 citada. La memoria en `memoria/profunda/` solo agrega bloques. No se edita un bloque ya commiteado.
+`Q` queda `null` hasta que haya una corrida AR1 citada. `memoria/profunda/` solo agrega bloques.
 
-Origen: reescritura del 2026-10-02. Se descartó un Q = 0.92 sin corrida y un push con token pegado en un chat.
+La escritura de Aleph es una deploy key de **este** repo. La privada no se guarda acá. La llave generada en el chat del 2026-10-02 quedó vista: hay que borrarla y poner una nueva, como la caja fuerte de un hotel. Los pasos están en [`aleph/SKILL.md`](aleph/SKILL.md).
