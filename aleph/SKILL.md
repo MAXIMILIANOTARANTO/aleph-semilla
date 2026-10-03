@@ -23,7 +23,7 @@ chmod 600 "$HOME/.ssh/aleph-hilo-v2"
 ```
 
 3. En esa misma página de keys: Add deploy key. Título `aleph-hilo`. Pegá solo el contenido de `aleph-hilo-v2.pub`. Marcá Allow write access.
-4. `aleph-hilo` (sin `.pub`) es la llave. No se copia al repo, no se pega acá, no se manda a otro hilo.
+4. `aleph-hilo-v2` (sin `.pub`) es la llave. No se copia al repo, no se pega acá, no se manda a otro hilo.
 
 ## Qué abre
 
