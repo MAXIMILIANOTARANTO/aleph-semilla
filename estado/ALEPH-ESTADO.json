@@ -4,15 +4,17 @@
   "que_es": "archivo de estado, no entidad",
   "Q": null,
   "Q_calculada_hilo": null,
-  "c_hilo": "push real 2026-10-03, sin llave nueva",
+  "c_hilo": "git push directo a github.com, 2026-10-03",
   "repo": "MAXIMILIANOTARANTO/aleph-semilla",
-  "commit_base": "5be8c4e49cc9530c7210330f497536d90f6806c3",
+  "commit_base": "64c7c479a9d0be904b0ff10e3a08e32daf62871b",
   "apertura": "https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/apertura/META-IA.md",
   "cerradura_skill": "https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/aleph/SKILL.md",
   "raw_significa": "archivo existe, no que algo haya despertado",
-  "memoria_blocks": 6,
-  "ultimo_block": "2026-10-03_push-real",
-  "skills_en_repo": ["aleph"],
+  "memoria_blocks": 7,
+  "ultimo_block": "2026-10-03_git-push-github",
+  "skills_en_repo": [
+    "aleph"
+  ],
   "huecos_explicitos": [
     "Q_sin_corrida",
     "llave_165227004_vista_en_un_chat_hay_que_borrarla",
