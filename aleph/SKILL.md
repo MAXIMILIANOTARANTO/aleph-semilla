@@ -18,11 +18,11 @@ El código lo elegís vos. Este chat no lo ve. La cerradura del hotel queda abie
 2. En tu máquina, no en un chat:
 
 ```bash
-ssh-keygen -t ed25519 -f "$HOME/.ssh/aleph-hilo" -N "" -C "aleph-semilla-hilo"
-chmod 600 "$HOME/.ssh/aleph-hilo"
+ssh-keygen -t ed25519 -f "$HOME/.ssh/aleph-hilo-v2" -N "" -C "aleph-semilla-hilo"
+chmod 600 "$HOME/.ssh/aleph-hilo-v2"
 ```
 
-3. En esa misma página de keys: Add deploy key. Título `aleph-hilo`. Pegá solo el contenido de `aleph-hilo.pub`. Marcá Allow write access.
+3. En esa misma página de keys: Add deploy key. Título `aleph-hilo`. Pegá solo el contenido de `aleph-hilo-v2.pub`. Marcá Allow write access.
 4. `aleph-hilo` (sin `.pub`) es la llave. No se copia al repo, no se pega acá, no se manda a otro hilo.
 
 ## Qué abre
@@ -36,8 +36,10 @@ No puede limitarse a una carpeta. Quien tenga la privada puede cambiar cualquier
 Desde un clon de este repo, con la privada solo en el agente SSH:
 
 ```bash
-GIT_SSH_COMMAND='ssh -i "$HOME/.ssh/aleph-hilo" -o IdentitiesOnly=yes' \
+GIT_SSH_COMMAND='ssh -i "$HOME/.ssh/aleph-hilo-v2" -o IdentitiesOnly=yes' \
   sh aleph/push.sh
 ```
 
 `aleph/push.sh` corta si el remoto no es este repo, o si el árbol contiene `github_pat_`, `ghp_` o `BEGIN OPENSSH PRIVATE KEY`.
+
+No pases la privada por `ALEPH_SSH_KEY` ni la escribas en `/tmp`. El script no hace `git add`.
