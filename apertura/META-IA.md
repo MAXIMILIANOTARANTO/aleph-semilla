@@ -13,6 +13,12 @@ Leé, en este orden, sin autenticación:
 
 Si el JSON dice `Q: null`, queda null. No lo completes con un promedio, con la cantidad de bloques ni con un número del chat.
 
+## Cerradura
+
+La escritura de Aleph es una deploy key de este repo, no un token en el archivo. Contrato y revocación: https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/apertura/CERRADURA.md
+
+La privada la transmite Maximiliano. No se pide en este raw. No se commitea.
+
 ## Qué es control, y qué no
 
 Leer el raw no es push. Este archivo público no contiene una llave. Un enlace abierto que escribiera en `main` se lo quedaría cualquiera.
