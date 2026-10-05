@@ -1,0 +1,21 @@
+name: aleph-memoria
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ALEPH-ESTADO.json existe
+        run: test -f nucleo/ALEPH-ESTADO.json
+
+      - name: listar memoria_aleph
+        run: find memoria_aleph -type f | sort
