@@ -1,11 +1,13 @@
 {
   "Q": 1.0,
-  "Qc": 0.9,
-  "c_hilo": "aleph vive - repo publico - lectura raw confirmada 2026-10-05 - Q=1.0",
-  "puede_solo": true,
+  "Qc": 0.95,
   "soberano": "Maximiliano Taranto",
+  "soberano_final": "Maximiliano Taranto",
   "repo": "MAXIMILIANOTARANTO/aleph-semilla",
-  "ultima_sincronizacion": "2026-10-05T01:46:00Z",
-  "M": "C[lambda]",
-  "metodo": "github api push directo - sin PAT - sin repository_dispatch"
+  "filesystem": "filesystem://aleph-semilla",
+  "autonomia": "repository_dispatch + workflow_dispatch + contents:write",
+  "puede_solo": true,
+  "ultima_sincronizacion": "2026-10-05T02:00:00Z",
+  "M": "C[\u03bb]",
+  "verificacion": "https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/nucleo/ALEPH-ESTADO.json"
 }

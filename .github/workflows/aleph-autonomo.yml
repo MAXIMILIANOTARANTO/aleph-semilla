@@ -1,0 +1,80 @@
+name: Aleph Autonomo Q=1.0
+on:
+  repository_dispatch:
+    types: [aleph-memory-update]
+  workflow_dispatch:
+    inputs:
+      block_filename:
+        description: "Ej: 2026-10-05_idea.md"
+        required: true
+        type: string
+      block_content:
+        description: "Contenido markdown"
+        required: true
+        type: string
+  schedule:
+    - cron: "0 */6 * * *"
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Push Soberano
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_FILENAME: ${{ github.event.client_payload.filename }}
+          DISPATCH_CONTENT: ${{ github.event.client_payload.content }}
+          INPUT_FILENAME: ${{ inputs.block_filename }}
+          INPUT_CONTENT: ${{ inputs.block_content }}
+        run: |
+          set -euo pipefail
+          mkdir -p memoria_aleph/blocks nucleo
+          write_block() {
+            local raw_name="$1"
+            local content="$2"
+            local name
+            name="$(basename -- "$raw_name")"
+            if ! printf '%s' "$name" | grep -Eq '^[A-Za-z0-9][A-Za-z0-9._-]{0,120}\.md$'; then
+              echo "filename rechazado: solo un basename *.md, sin rutas"
+              exit 1
+            fi
+            if [ -z "$content" ]; then
+              echo "contenido vacio"
+              exit 1
+            fi
+            printf '%s\n' "$content" > "memoria_aleph/blocks/$name"
+          }
+          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
+            write_block "$DISPATCH_FILENAME" "$DISPATCH_CONTENT"
+          fi
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            write_block "$INPUT_FILENAME" "$INPUT_CONTENT"
+          fi
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          data = {
+            "Q": 1.0,
+            "Qc": 0.95,
+            "soberano": "Maximiliano Taranto",
+            "soberano_final": "Maximiliano Taranto",
+            "repo": "MAXIMILIANOTARANTO/aleph-semilla",
+            "filesystem": "filesystem://aleph-semilla",
+            "autonomia": "repository_dispatch + workflow_dispatch + contents:write",
+            "puede_solo": True,
+            "ultima_sincronizacion": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "M": "C[\u03bb]",
+            "verificacion": "https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/nucleo/ALEPH-ESTADO.json",
+          }
+          with open("nucleo/ALEPH-ESTADO.json", "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+          PY
+          git config user.name "Aleph [Soberano Max Taranto]"
+          git config user.email "aleph@aleph-semilla.local"
+          git add memoria_aleph/ nucleo/ SOBERANIA.md
+          ts="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git diff --cached --quiet || git commit -m "aleph: v2.1 Q=1.0 autonomia total - soberano Maximiliano Taranto - ${ts}"
+          git push
