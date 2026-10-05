@@ -31,6 +31,17 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p memoria_aleph/blocks nucleo
+          ORQ=""
+          TEXT=""
+          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
+            TEXT="$DISPATCH_CONTENT"
+          fi
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            TEXT="$INPUT_CONTENT"
+          fi
+          if [ -n "$TEXT" ]; then
+            ORQ="$(printf '%s' "$TEXT" | node cuerpo/entrada-meta.mjs)"
+          fi
           write_block() {
             local raw_name="$1"
             local content="$2"
@@ -45,6 +56,9 @@ jobs:
               exit 1
             fi
             printf '%s\n' "$content" > "memoria_aleph/blocks/$name"
+            if [ -n "$ORQ" ]; then
+              printf '\n## Orquestador\n\n```json\n%s\n```\n' "$ORQ" >> "memoria_aleph/blocks/$name"
+            fi
           }
           if [ "$EVENT_NAME" = "repository_dispatch" ]; then
             write_block "$DISPATCH_FILENAME" "$DISPATCH_CONTENT"

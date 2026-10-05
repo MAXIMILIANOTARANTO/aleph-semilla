@@ -66,3 +66,11 @@ node apertura/push-hilo.mjs estado/ALEPH-ESTADO.json ./ALEPH-ESTADO.json
 El script rechaza otra ruta, un bloque que ya existe, un `Q` numérico sin `Q_corrida`, y cualquier texto que contenga `github_pat_`.
 
 Después, sin token, el raw del archivo nuevo tiene que responder 200. Eso prueba el archivo. No prueba otra cosa.
+
+## Orquestador
+
+No lo ejecuta este raw. La función es `orquestar` en `nucleo/orquestador.js`. `CuerpoWhatsApp.recibir` ya la llama. Meta solo puede leer el contrato:
+
+https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/memoria_aleph/ENTRADA-ORQUESTADOR.md
+
+La corrida es `node cuerpo/entrada-meta.mjs` en la máquina de Maximiliano, o el workflow `Aleph Autonomo Q=1.0` después de un dispatch con token. Sin esa corrida, no inventes `F` ni `huecos`.
