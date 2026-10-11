@@ -7,7 +7,7 @@
   "filesystem": "filesystem://aleph-semilla",
   "autonomia": "repository_dispatch + workflow_dispatch + contents:write",
   "puede_solo": true,
-  "ultima_sincronizacion": "2026-10-10T21:14:58Z",
+  "ultima_sincronizacion": "2026-10-11T04:24:26Z",
   "M": "C[λ]",
   "verificacion": "https://raw.githubusercontent.com/MAXIMILIANOTARANTO/aleph-semilla/main/nucleo/ALEPH-ESTADO.json"
 }
